@@ -222,8 +222,10 @@ VALUES ('VT', 'NE', 'Windsor', 'A', 26, 250);
 
 -- county tables for the counties in the states
 CREATE TABLE cumberland (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -231,8 +233,10 @@ CREATE TABLE cumberland (
 );
 
 CREATE TABLE york (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -240,8 +244,10 @@ CREATE TABLE york (
 );
 
 CREATE TABLE kennebec (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -249,8 +255,10 @@ CREATE TABLE kennebec (
 );
 
 CREATE TABLE penobscot (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -258,8 +266,10 @@ CREATE TABLE penobscot (
 );
 
 CREATE TABLE androscoggin (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -267,8 +277,10 @@ CREATE TABLE androscoggin (
 );
 
 CREATE TABLE aroostook (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -276,8 +288,10 @@ CREATE TABLE aroostook (
 );
 
 CREATE TABLE oxford (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -285,8 +299,10 @@ CREATE TABLE oxford (
 );
 
 CREATE TABLE hancock (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -294,8 +310,10 @@ CREATE TABLE hancock (
 );
 
 CREATE TABLE somerset (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -303,8 +321,10 @@ CREATE TABLE somerset (
 );
 
 CREATE TABLE knox (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -312,8 +332,10 @@ CREATE TABLE knox (
 );
 
 CREATE TABLE waldo (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -321,8 +343,10 @@ CREATE TABLE waldo (
 );
 
 CREATE TABLE lincoln (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -330,8 +354,10 @@ CREATE TABLE lincoln (
 );
 
 CREATE TABLE sagadahoc (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -339,8 +365,10 @@ CREATE TABLE sagadahoc (
 );
 
 CREATE TABLE franklin (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -348,8 +376,10 @@ CREATE TABLE franklin (
 );
 
 CREATE TABLE piscataquis (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
@@ -357,13 +387,16 @@ CREATE TABLE piscataquis (
 );
 
 CREATE TABLE washington (
-    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
-    state_id VARCHAR,
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    city_id VARCHAR,
     private_practices INTEGER,
     num_hospitals INTEGER,
     num_insured INTEGER,
     num_providers INTEGER
 );
+
 -- had to alter state tables to add a pkey
 ALTER TABLE maine ADD UNIQUE (county_name);
 ALTER TABLE massachusetts ADD UNIQUE (county_name);
@@ -371,3 +404,282 @@ ALTER TABLE new_hampshire ADD UNIQUE (county_name);
 ALTER TABLE vermont ADD UNIQUE (county_name);
 ALTER TABLE connecticut ADD UNIQUE (county_name);
 ALTER TABLE rhode_island ADD UNIQUE (county_name);
+
+-- populate the county tables
+
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Cumberland', 'Portland', 100, 5, 100000, 2000);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Cumberland', 'Brunswick', 50, 3, 50000, 1000);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Cumberland', 'Windham', 40, 2, 40000, 800);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Cumberland', 'Gray', 30, 2, 30000, 600);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Cumberland', 'Falmouth', 20, 1, 20000, 400);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Cumberland', 'Yarmouth', 25, 1, 25000, 500);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Cumberland', 'Freeport', 15, 1, 15000, 300);
+INSERT INTO cumberland (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Cumberland', 'Cumberland', 30, 2, 30000, 600);
+
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'York', 'York', 90, 4, 80000, 1800);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'York', 'Biddeford', 60, 3, 60000, 1200);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'York', 'Kennebunk', 40, 2, 40000, 800);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'York', 'Saco', 30, 2, 30000, 600);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'York', 'Wells', 20, 1, 20000, 400);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'York', 'Ogunquit', 25, 1, 25000, 500);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'York', 'Sanford', 15, 1, 15000, 300);
+INSERT INTO york (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'York', 'Wells', 30, 2, 30000, 600);
+
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Kennebec', 'Augusta', 50, 3, 50000, 1000);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Kennebec', 'Waterville', 30, 2, 30000, 600);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Kennebec', 'Gardiner', 20, 1, 20000, 400);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Kennebec', 'Hallowell', 25, 1, 25000, 500);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Kennebec', 'Winthrop', 15, 1, 15000, 300);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Kennebec', 'Farmingdale', 20, 1, 20000, 400);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Kennebec', 'Chelsea', 25, 1, 25000, 500);
+INSERT INTO kennebec (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Kennebec', 'Litchfield', 30, 2, 30000, 600);
+
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Penobscot', 'Bangor', 40, 2, 40000, 800);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Penobscot', 'Orono', 30, 2, 30000, 600);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Penobscot', 'Old Town', 20, 1, 20000, 400);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Penobscot', 'Lincoln', 25, 1, 25000, 500);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Penobscot', 'Millinocket', 15, 1, 15000, 300);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Penobscot', 'Dexter', 20, 1, 20000, 400);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Penobscot', 'Newport', 25, 1, 25000, 500);
+INSERT INTO penobscot (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Penobscot', 'Corinna', 30, 2, 30000, 600);
+
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Androscoggin', 'Lewiston', 70, 3, 70000, 1400);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Androscoggin', 'Auburn', 50, 2, 50000, 1000);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Androscoggin', 'Lisbon', 40, 2, 40000, 800);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Androscoggin', 'Durham', 30, 1, 30000, 600);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Androscoggin', 'Poland', 25, 1, 25000, 500);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Androscoggin', 'Minot', 20, 1, 20000, 400);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Androscoggin', 'Turner', 25, 1, 25000, 500);
+INSERT INTO androscoggin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Androscoggin', 'Greene', 30, 2, 30000, 600);
+
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Aroostook', 'Presque Isle', 35, 2, 35000, 700);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Aroostook', 'Caribou', 25, 1, 25000, 500);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Aroostook', 'Houlton', 20, 1, 20000, 400);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Aroostook', 'Fort Kent', 15, 1, 15000, 300);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Aroostook', 'Madawaska', 20, 1, 20000, 400);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Aroostook', 'Van Buren', 25, 1, 25000, 500);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Aroostook', 'Limestone', 30, 2, 30000, 600);
+INSERT INTO aroostook (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Aroostook', 'Mars Hill', 35, 2, 35000, 700);
+
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Oxford', 'South Paris', 30, 2, 30000, 600);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Oxford', 'Rumford', 20, 1, 20000, 400);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Oxford', 'Norway', 25, 1, 25000, 500);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Oxford', 'Bethel', 15, 1, 15000, 300);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Oxford', 'Fryeburg', 20, 1, 20000, 400);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Oxford', 'Mexico', 25, 1, 25000, 500);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Oxford', 'Dixfield', 30, 2, 30000, 600);
+INSERT INTO oxford (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Oxford', 'Paris', 35, 2, 35000, 700);
+
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Hancock', 'Ellsworth', 20, 1, 20000, 400);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Hancock', 'Bar Harbor', 15, 1, 15000, 300);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Hancock', 'Blue Hill', 20, 1, 20000, 400);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Hancock', 'Bucksport', 25, 1, 25000, 500);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Hancock', 'Castine', 30, 2, 30000, 600);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Hancock', 'Deer Isle', 35, 2, 35000, 700);
+INSERT INTO hancock (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Hancock', 'Gouldsboro', 25, 1, 25000, 500);
+
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Somerset', 'Skowhegan', 25, 1, 25000, 500);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Somerset', 'Madison', 20, 1, 20000, 400);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Somerset', 'Norridgewock', 25, 1, 25000, 500);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Somerset', 'Fairfield', 15, 1, 15000, 300);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Somerset', 'Pittsfield', 20, 1, 20000, 400);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Somerset', 'Bingham', 25, 1, 25000, 500);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Somerset', 'Anson', 30, 2, 30000, 600);
+INSERT INTO somerset (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Somerset', 'Starks', 35, 2, 35000, 700);
+
+INSERT INTO knox (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Knox', 'Rockland', 15, 1, 15000, 300);
+INSERT INTO knox (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Knox', 'Camden', 20, 1, 20000, 400);
+INSERT INTO knox (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Knox', 'Thomaston', 25, 1, 25000, 500);
+
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Waldo', 'Belfast', 30, 2, 30000, 600);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Waldo', 'Searsport', 20, 1, 20000, 400);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Waldo', 'Lincolnville', 25, 1, 25000, 500);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Waldo', 'Stockton Springs', 15, 1, 15000, 300);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Waldo', 'Unity', 20, 1, 20000, 400);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Waldo', 'Swanville', 25, 1, 25000, 500);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Waldo', 'Frankfort', 30, 2, 30000, 600);
+INSERT INTO waldo (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Waldo', 'Winterport', 35, 2, 35000, 700);
+
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Lincoln', 'Wiscasset', 40, 2, 40000, 800);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Lincoln', 'Damariscotta', 30, 2, 30000, 600);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Lincoln', 'Newcastle', 20, 1, 20000, 400);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Lincoln', 'Boothbay Harbor', 25, 1, 25000, 500);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Lincoln', 'Edgecomb', 15, 1, 15000, 300);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Lincoln', 'Bristol', 20, 1, 20000, 400);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Lincoln', 'South Bristol', 25, 1, 25000, 500);
+INSERT INTO lincoln (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Lincoln', 'Alna', 30, 2, 30000, 600);
+
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Sagadahoc', 'Bath', 35, 2, 35000, 700);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Sagadahoc', 'Topsham', 25, 1, 25000, 500);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Sagadahoc', 'Richmond', 20, 1, 20000, 400);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Sagadahoc', 'Bowdoinham', 25, 1, 25000, 500);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Sagadahoc', 'Woolwich', 15, 1, 15000, 300);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Sagadahoc', 'Arrowsic', 20, 1, 20000, 400);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Sagadahoc', 'Georgetown', 25, 1, 25000, 500);
+INSERT INTO sagadahoc (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Sagadahoc', 'Phippsburg', 30, 2, 30000, 600);
+
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Franklin', 'Farmington', 25, 1, 25000, 500);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Franklin', 'Jay', 20, 1, 20000, 400);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Franklin', 'Wilton', 25, 1, 25000, 500);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Franklin', 'Carrabassett Valley', 15, 1, 15000, 300);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Franklin', 'Phillips', 20, 1, 20000, 400);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Franklin', 'Strong', 25, 1, 25000, 500);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Franklin', 'New Sharon', 30, 2, 30000, 600);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Franklin', 'Temple', 35, 2, 35000, 700);
+
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Piscataquis', 'Dover-Foxcroft', 20, 1, 20000, 400);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Piscataquis', 'Greenville', 15, 1, 15000, 300);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Piscataquis', 'Milo', 20, 1, 20000, 400);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Piscataquis', 'Guilford', 25, 1, 25000, 500);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Piscataquis', 'Sangerville', 30, 2, 30000, 600);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Piscataquis', 'Brownville', 35, 2, 35000, 700);
+INSERT INTO piscataquis (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Piscataquis', 'Sebec', 25, 1, 25000, 500);
+
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Washington', 'Machias', 25, 1, 25000, 500);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Washington', 'Calais', 20, 1, 20000, 400);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Washington', 'Eastport', 25, 1, 25000, 500);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Washington', 'Jonesport', 15, 1, 15000, 300);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Washington', 'Milbridge', 20, 1, 20000, 400);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Washington', 'Addison', 25, 1, 25000, 500);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Washington', 'Harrington', 30, 2, 30000, 600);
+INSERT INTO washington (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Washington', 'Cherryfield', 35, 2, 35000, 700);
+
+-- drop the county tables
+DROP TABLE cumberland;
+DROP TABLE york;
+DROP TABLE kennebec;
+DROP TABLE penobscot;
+DROP TABLE androscoggin;
+DROP TABLE aroostook;
+DROP TABLE oxford;
+DROP TABLE hancock;
+DROP TABLE somerset;
+DROP TABLE knox;
+DROP TABLE waldo;
+DROP TABLE lincoln;
+DROP TABLE sagadahoc;
+DROP TABLE franklin;
+DROP TABLE piscataquis;
+DROP TABLE washington;
+-- had to alter the keys of the counties
