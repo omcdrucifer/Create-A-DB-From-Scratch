@@ -31,7 +31,7 @@ CREATE TABLE maine (
     county_name VARCHAR,
     fee_schedule VARCHAR,
     num_groups INTEGER,
-    num_providers INTEGER
+    num_providers INTEGER,
 );
 
 CREATE TABLE massachusetts (
@@ -219,3 +219,155 @@ INSERT INTO vermont (id, market_id, county_name, fee_schedule, num_groups, num_p
 VALUES ('VT', 'NE', 'Windham', 'A', 30, 350);
 INSERT INTO vermont (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('VT', 'NE', 'Windsor', 'A', 26, 250);
+
+-- county tables for the counties in the states
+CREATE TABLE cumberland (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE york (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE kennebec (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE penobscot (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE androscoggin (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE aroostook (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE oxford (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE hancock (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE somerset (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE knox (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE waldo (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE lincoln (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE sagadahoc (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE franklin (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE piscataquis (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE washington (
+    id VARCHAR PRIMARY KEY REFERENCES maine(county_name),
+    state_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+-- had to alter state tables to add a pkey
+ALTER TABLE maine ADD UNIQUE (county_name);
+ALTER TABLE massachusetts ADD UNIQUE (county_name);
+ALTER TABLE new_hampshire ADD UNIQUE (county_name);
+ALTER TABLE vermont ADD UNIQUE (county_name);
+ALTER TABLE connecticut ADD UNIQUE (county_name);
+ALTER TABLE rhode_island ADD UNIQUE (county_name);
