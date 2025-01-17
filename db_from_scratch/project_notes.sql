@@ -34,7 +34,7 @@ CREATE TABLE maine (
     num_providers INTEGER,
 );
 
-CREATE TABLE massachusetts (
+CREATE TABLE massachussetts (
     id VARCHAR,
     market_id VARCHAR REFERENCES markets(id),
     county_name VARCHAR,
@@ -130,11 +130,11 @@ VALUES ('CT', 'NE', 'Tolland', 'A', 30, 300);
 INSERT INTO connecticut (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('CT', 'NE', 'Windham', 'A', 25, 200);
 
-INSERT INTO massachusetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
+INSERT INTO massachussetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('MA', 'NE', 'Barnstable', 'A,B', 45, 1000);
-INSERT INTO massachusetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
+INSERT INTO massachussetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('MA', 'NE', 'Berkshire', 'A,B', 32, 900);
-INSERT INTO massachusetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
+INSERT INTO massachussetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('MA', 'NE', 'Bristol', 'A,B', 25, 500);
 INSERT INTO massachussetts (id, market_id, county_name, fee_schedule, num_groups, num_providers)
 VALUES ('MA', 'NE', 'Dukes', 'A', 25, 400);
@@ -399,7 +399,7 @@ CREATE TABLE washington (
 
 -- had to alter state tables to add a pkey
 ALTER TABLE maine ADD UNIQUE (county_name);
-ALTER TABLE massachusetts ADD UNIQUE (county_name);
+ALTER TABLE massachussetts ADD UNIQUE (county_name);
 ALTER TABLE new_hampshire ADD UNIQUE (county_name);
 ALTER TABLE vermont ADD UNIQUE (county_name);
 ALTER TABLE connecticut ADD UNIQUE (county_name);
@@ -683,3 +683,476 @@ DROP TABLE franklin;
 DROP TABLE piscataquis;
 DROP TABLE washington;
 -- had to alter the keys of the counties
+
+-- massachussetts county tables
+CREATE TABLE suffolk (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE middlesex (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE essex (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE norfolk (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE plymouth (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE worcester (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE hampden (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE hampshire (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE berkshire (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE barnstable (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE dukes (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE nantucket (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE franklin (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE bristol (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+-- populate the massachussetts county tables
+
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Suffolk', 'Boston', 100, 5, 100000, 2000);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Suffolk', 'Chelsea', 70, 3, 70000, 1400);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Suffolk', 'Revere', 50, 2, 50000, 1000);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Suffolk', 'Winthrop', 40, 2, 40000, 800);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Suffolk', 'Jamaica Plain', 30, 1, 30000, 600);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Suffolk', 'Dorchester', 40, 2, 40000, 800);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Suffolk', 'Roxbury', 50, 2, 50000, 1000);
+INSERT INTO suffolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Suffolk', 'Mattapan', 60, 3, 60000, 1200);
+
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Middlesex', 'Cambridge', 80, 4, 80000, 1600);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Middlesex', 'Lowell', 60, 3, 60000, 1200);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Middlesex', 'Framingham', 50, 2, 50000, 1000);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Middlesex', 'Waltham', 40, 2, 40000, 800);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Middlesex', 'Newton', 30, 1, 30000, 600);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Middlesex', 'Woburn', 40, 2, 40000, 800);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Middlesex', 'Malden', 50, 2, 50000, 1000);
+INSERT INTO middlesex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Middlesex', 'Medford', 60, 3, 60000, 1200);
+
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Essex', 'Salem', 70, 3, 70000, 1400);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Essex', 'Lynn', 50, 2, 50000, 1000);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Essex', 'Gloucester', 40, 2, 40000, 800);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Essex', 'Newburyport', 30, 1, 30000, 600);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Essex', 'Haverhill', 40, 2, 40000, 800);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Essex', 'Lawrence', 50, 2, 50000, 1000);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Essex', 'Beverly', 60, 3, 60000, 1200);
+INSERT INTO essex (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Essex', 'Peabody', 70, 3, 70000, 1400);
+
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Norfolk', 'Quincy', 60, 3, 60000, 1200);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Norfolk', 'Weymouth', 40, 2, 40000, 800);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Norfolk', 'Brookline', 30, 1, 30000, 600);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Norfolk', 'Dedham', 20, 1, 20000, 400);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Norfolk', 'Randolph', 30, 1, 30000, 600);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Norfolk', 'Canton', 40, 2, 40000, 800);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Norfolk', 'Stoughton', 50, 2, 50000, 1000);
+INSERT INTO norfolk (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Norfolk', 'Foxborough', 60, 3, 60000, 1200);
+
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Plymouth', 'Plymouth', 50, 2, 50000, 1000);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Plymouth', 'Brockton', 40, 2, 40000, 800);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Plymouth', 'Bridgewater', 30, 1, 30000, 600);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Plymouth', 'Marshfield', 20, 1, 20000, 400);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Plymouth', 'Kingston', 30, 1, 30000, 600);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Plymouth', 'Pembroke', 40, 2, 40000, 800);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Plymouth', 'Wareham', 50, 2, 50000, 1000);
+INSERT INTO plymouth (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Plymouth', 'Carver', 60, 3, 60000, 1200);
+
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Worcester', 'Worcester', 70, 3, 70000, 1400);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Worcester', 'Fitchburg', 50, 2, 50000, 1000);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Worcester', 'Leominster', 40, 2, 40000, 800);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Worcester', 'Milford', 30, 1, 30000, 600);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Worcester', 'Gardner', 40, 2, 40000, 800);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Worcester', 'Southbridge', 50, 2, 50000, 1000);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Worcester', 'Auburn', 60, 3, 60000, 1200);
+INSERT INTO worcester (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Worcester', 'Holden', 70, 3, 70000, 1400);
+
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Hampden', 'Springfield', 60, 3, 60000, 1200);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Hampden', 'Chicopee', 40, 2, 40000, 800);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Hampden', 'Holyoke', 30, 1, 30000, 600);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Hampden', 'Westfield', 20, 1, 20000, 400);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Hampden', 'Agawam', 30, 1, 30000, 600);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Hampden', 'West Springfield', 40, 2, 40000, 800);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Hampden', 'Longmeadow', 50, 2, 50000, 1000);
+INSERT INTO hampden (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Hampden', 'Wilbraham', 60, 3, 60000, 1200);
+
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Hampshire', 'Northampton', 50, 2, 50000, 1000);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Hampshire', 'Amherst', 40, 2, 40000, 800);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Hampshire', 'South Hadley', 30, 1, 30000, 600);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Hampshire', 'Easthampton', 20, 1, 20000, 400);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Hampshire', 'Ware', 30, 1, 30000, 600);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Hampshire', 'Belchertown', 40, 2, 40000, 800);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Hampshire', 'Granby', 50, 2, 50000, 1000);
+INSERT INTO hampshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Hampshire', 'Hadley', 60, 3, 60000, 1200);
+
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Berkshire', 'Pittsfield', 60, 3, 60000, 1200);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Berkshire', 'North Adams', 40, 2, 40000, 800);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Berkshire', 'Great Barrington', 30, 1, 30000, 600);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Berkshire', 'Lenox', 20, 1, 20000, 400);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Berkshire', 'Lee', 30, 1, 30000, 600);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Berkshire', 'Adams', 40, 2, 40000, 800);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Berkshire', 'Williamstown', 50, 2, 50000, 1000);
+INSERT INTO berkshire (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Berkshire', 'Stockbridge', 60, 3, 60000, 1200);
+
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Barnstable', 'Barnstable', 50, 2, 50000, 1000);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Barnstable', 'Yarmouth', 40, 2, 40000, 800);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Barnstable', 'Falmouth', 30, 1, 30000, 600);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Barnstable', 'Mashpee', 20, 1, 20000, 400);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Barnstable', 'Sandwich', 30, 1, 30000, 600);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Barnstable', 'Bourne', 40, 2, 40000, 800);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Barnstable', 'Orleans', 50, 2, 50000, 1000);
+INSERT INTO barnstable (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Barnstable', 'Chatham', 60, 3, 60000, 1200);
+
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Dukes', 'Edgartown', 40, 2, 40000, 800);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Dukes', 'Oak Bluffs', 30, 1, 30000, 600);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Dukes', 'Tisbury', 20, 1, 20000, 400);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Dukes', 'West Tisbury', 10, 1, 10000, 200);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Dukes', 'Chilmark', 20, 1, 20000, 400);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Dukes', 'Aquinnah', 30, 1, 30000, 600);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Dukes', 'Gosnold', 40, 2, 40000, 800);
+INSERT INTO dukes (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Dukes', 'Tisbury', 50, 2, 50000, 1000);
+
+INSERT INTO nantucket (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Nantucket', 'Nantucket', 40, 2, 40000, 800);
+
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Franklin', 'Greenfield', 50, 2, 50000, 1000);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Franklin', 'Orange', 40, 2, 40000, 800);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Franklin', 'Deerfield', 30, 1, 30000, 600);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Franklin', 'Shelburne', 20, 1, 20000, 400);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Franklin', 'Bernardston', 30, 1, 30000, 600);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Franklin', 'Leverett', 40, 2, 40000, 800);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Franklin', 'Sunderland', 50, 2, 50000, 1000);
+INSERT INTO franklin (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Franklin', 'Montague', 60, 3, 60000, 1200);
+
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (1, 'Bristol', 'Fall River', 60, 3, 60000, 1200);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (2, 'Bristol', 'New Bedford', 40, 2, 40000, 800);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (3, 'Bristol', 'Taunton', 30, 1, 30000, 600);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (4, 'Bristol', 'Attleboro', 20, 1, 20000, 400);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (5, 'Bristol', 'Mansfield', 30, 1, 30000, 600);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (6, 'Bristol', 'Dartmouth', 40, 2, 40000, 800);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (7, 'Bristol', 'Somerset', 50, 2, 50000, 1000);
+INSERT INTO bristol (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
+VALUES (8, 'Bristol', 'Swansea', 60, 3, 60000, 1200);
+
+-- new hampshire county tables
+
+CREATE TABLE rockingham (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE hillsborough (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE strafford (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE belknap (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE carroll (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE cheshire (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE coos (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+CREATE TABLE grafton (
+    id SERIAL PRIMARY KEY,
+    county_name VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    city_id VARCHAR,
+    private_practices INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    num_providers INTEGER
+);
+
+-- populate the new hampshire county tables
