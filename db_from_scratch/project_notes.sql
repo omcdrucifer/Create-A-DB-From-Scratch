@@ -2056,3 +2056,84 @@ INSERT INTO washington_ri (id, county_name, city_id, private_practices, num_hosp
 VALUES (7, 'Washington', 'Richmond', 50, 2, 50000, 1000);
 INSERT INTO washington_ri (id, county_name, city_id, private_practices, num_hospitals, num_insured, num_providers)
 VALUES (8, 'Washington', 'Exeter', 60, 3, 60000, 1200);
+
+-- provider groups
+
+CREATE TABLE provider_groups_me (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES maine(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
+
+CREATE TABLE provider_groups_vt (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES vermont(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
+
+CREATE TABLE provider_groups_ct (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+
+    FOREIGN KEY (county_name) REFERENCES connecticut(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
+
+CREATE TABLE provider_groups_ri (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES rhode_island(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
+
+CREATE TABLE provider_groups_ma (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES massachussetts(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
+
+CREATE TABLE provider_groups_nh (
+    id SERIAL PRIMARY KEY,
+    group_name VARCHAR,
+    num_providers INTEGER,
+    num_hospitals INTEGER,
+    num_insured INTEGER,
+    private_practices INTEGER,
+    county_name VARCHAR,
+    market_id VARCHAR,
+    FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
+    FOREIGN KEY (market_id) REFERENCES markets(id)
+);
