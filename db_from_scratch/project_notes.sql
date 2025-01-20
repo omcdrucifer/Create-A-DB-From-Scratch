@@ -2137,3 +2137,66 @@ CREATE TABLE provider_groups_nh (
     FOREIGN KEY (county_name) REFERENCES new_hampshire(county_name),
     FOREIGN KEY (market_id) REFERENCES markets(id)
 );
+
+-- this should suffificently demonstrate a healthcare makret
+-- time to add some security features
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR,
+    password VARCHAR
+);
+
+CREATE TABLE roles (
+    id SERIAL PRIMARY KEY,
+    role_name VARCHAR
+);
+
+CREATE TABLE user_roles (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER,
+    role_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (role_id) REFERENCES roles(id)
+);
+
+-- add some users
+
+INSERT INTO users (id, username, password)
+VALUES (1, 'admin', 'admin');
+INSERT INTO users (id, username, password)
+VALUES (2, 'user', 'user');
+
+-- add some roles
+
+INSERT INTO roles (id, role_name)
+VALUES (1, 'admin');
+INSERT INTO roles (id, role_name)
+VALUES (2, 'user');
+
+-- add some user roles
+
+INSERT INTO user_roles (id, user_id, role_id)
+VALUES (1, 1, 1);
+INSERT INTO user_roles (id, user_id, role_id)
+VALUES (2, 2, 2);
+
+-- add some indexes
+
+CREATE INDEX idx_county_name ON maine(county_name);
+CREATE INDEX idx_market_id ON markets(id);
+
+-- add some triggers
+
+CREATE OR REPLACE FUNCTION trigger_set_timestamp()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.created_at = NOW();
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- vaccum and analyze
+
+VACUUM FULL ANALYZE;
